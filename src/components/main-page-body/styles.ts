@@ -9,5 +9,5 @@ export const Title = styled.div`
     font-weight: bold;
     font-size: 28px;
 
-    padding: 20px;
+    padding: 20px 0 20px 100px;
 `;
