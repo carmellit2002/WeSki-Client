@@ -6,13 +6,15 @@ interface HotelsContextProps {
     setHotels: (hotels: Hotel[]) => void;
     isLoading: boolean;
     setIsLoading: (isLoading: boolean) => void;
+    addHotels: (hotels: Hotel[]) => void;
 }
 
 const DEFAULT_CONTEXT_VALUE: HotelsContextProps = {
     hotels: [],
     setHotels: () => {},
     isLoading: false,
-    setIsLoading: () => {}
+    setIsLoading: () => {},
+    addHotels: () => {}
 }
 
 export const HotelsContext = createContext<HotelsContextProps>(DEFAULT_CONTEXT_VALUE);

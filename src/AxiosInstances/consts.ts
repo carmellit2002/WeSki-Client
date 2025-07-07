@@ -17,3 +17,5 @@ export const SERVER_ROUTES: Routes = {
 export const ERRORS: ServerErrors = {
     GET_HOTELS: "Could not retrieve hotels."
 };
+
+export const MAX_GROUP_SIZE = 10;
