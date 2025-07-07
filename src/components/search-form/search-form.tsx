@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import "./search-form.scss";
+import { Hotel } from "../../AxiosInstances/types";
 import ResortsSelect from "./resorts-select/resorts-select";
 import GuestsSelect from "./guests-select/guests-select";
 import SearchButton from "./search-button/search-button";
 import DatePicker from 'react-datepicker';
 import dayjs from 'dayjs';
 import { getHotels } from "../../AxiosInstances/serverRequestor";
+import { HotelsContext } from "../../context/hotelsContext";
 
 
 const SearchForm: React.FC = () => {
@@ -13,11 +15,14 @@ const SearchForm: React.FC = () => {
     const [groupSize, setGroupSize] = useState<number>(1);
     const [startDate, setStartDate] = useState<Date | null>(dayjs().toDate());
     const [endDate, setEndDate] = useState<Date | null>(dayjs().add(7, 'days').toDate());
+    const { setHotels } = useContext(HotelsContext);
 
     const onSearchClick = async () => {
         if (startDate && endDate) {
-            const hotels = await getHotels(skiSiteId, groupSize, startDate, endDate);
-            // Update Context / State;
+            const hotels: Hotel[] | undefined = await getHotels(skiSiteId, groupSize, startDate, endDate);
+            if (hotels) {
+                setHotels(hotels);
+            }
         }
     }
     
