@@ -17,6 +17,7 @@ const HotelCard: FunctionComponent<HotelCardProps> = ({
     price,
     mainImage
 }) => {
+    console.log(mainImage);
     return <Container>
         <ImagePreview> 
             <MainImage src={mainImage} />
@@ -25,7 +26,7 @@ const HotelCard: FunctionComponent<HotelCardProps> = ({
             <Name> {name} </Name>
             <Rating> {rating} </Rating>
             <Location> {location} </Location>
-            <Price> {price} </Price>
+            <Price> £{price} </Price>
         </HotelMetadata>
     </Container>
 }

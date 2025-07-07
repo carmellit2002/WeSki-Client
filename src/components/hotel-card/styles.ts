@@ -13,7 +13,7 @@ export const Container = styled.div`
 
     background: #FFFFFF;
 
-    margin-bottom: 20px;
+    margin: 0 0 20px 20px;
 `;
 
 export const ImagePreview = styled.div`
