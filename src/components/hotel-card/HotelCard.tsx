@@ -24,9 +24,9 @@ const HotelCard: FunctionComponent<HotelCardProps> = ({
         </ImagePreview>
         <HotelMetadata>
             <Name> {name} </Name>
-            <Rating> {rating} </Rating>
+            <Rating> {rating} stars </Rating>
             <Location> {location} </Location>
-            <Price> £{price} </Price>
+            <Price> £{price} / per person </Price>
         </HotelMetadata>
     </Container>
 }
