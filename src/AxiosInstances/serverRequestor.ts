@@ -6,8 +6,6 @@ export const serverRequestor: AxiosInstance = axios.create(SERVER_REQUESTOR_CONF
 
 export const getHotels = async (destinationId: number, groupSize: number, startDate: Date, endDate: Date): Promise<Hotel[] | undefined> => {
     try {
-        console.log("startDate:", startDate);
-        console.log("endDate:", endDate);
         const url_path = `${SERVER_ROUTES.API.GET_HOTELS}?destinationId=${destinationId}&groupSize=${groupSize}&startDate=${startDate}&endDate=${endDate}`;
         const response = await serverRequestor.get<Hotel[]>(url_path);
         console.log("Data received in getHotels:", response.data);
