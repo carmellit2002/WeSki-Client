@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    height: 85vh;
-    width: 100vw;
+    height: 80vh;
+    width: 95vw;
 `;
 
-export const Title = styled.div``;
+export const Title = styled.div`
+    font-weight: bold;
+    font-size: 28px;
+
+    padding: 20px;
+`;
