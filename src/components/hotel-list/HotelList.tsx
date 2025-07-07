@@ -13,7 +13,8 @@ const HotelList: FunctionComponent<HotelListProps> = ({ hotels }) => {
 
         </ResultMetadata>
         {
-            hotels.map((hotel) => <HotelCard 
+            hotels.map((hotel) => <HotelCard
+                key={hotel.id}
                 name={hotel.name}
                 rating={hotel.rating}
                 location={hotel.location}
