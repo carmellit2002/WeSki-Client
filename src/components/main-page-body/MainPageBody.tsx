@@ -4,10 +4,10 @@ import { Container, Title } from "./styles";
 import HotelList from "../hotel-list";
 
 const MainPageBody: FunctionComponent = () => {
-    const { hotels } = useContext(HotelsContext);
+    const { hotels, isLoading } = useContext(HotelsContext);
     return <Container>
         <Title> Select your ski trip </Title>
-        <HotelList hotels={hotels}/>
+        {isLoading? "Loading results..." : <HotelList hotels={hotels}/>}
     </Container>
 }
 

@@ -15,13 +15,15 @@ const SearchForm: React.FC = () => {
     const [groupSize, setGroupSize] = useState<number>(1);
     const [startDate, setStartDate] = useState<Date | null>(dayjs().toDate());
     const [endDate, setEndDate] = useState<Date | null>(dayjs().add(7, 'days').toDate());
-    const { setHotels } = useContext(HotelsContext);
+    const { setHotels, setIsLoading } = useContext(HotelsContext);
 
     const onSearchClick = async () => {
         if (startDate && endDate) {
+            setIsLoading(true);
             const hotels: Hotel[] | undefined = await getHotels(skiSiteId, groupSize, startDate, endDate);
             if (hotels) {
                 setHotels(hotels);
+                setIsLoading(false);
             }
         }
     }
