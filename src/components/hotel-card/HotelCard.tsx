@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { Container } from "./styles";
-import { ImagePreview, MainImage, HotelMetadata, Name, Rating, Location, Divider, Price } from "./styles";
+import { ImagePreview, MainImage, HotelMetadata, Name, Rating, Location, Price } from "./styles";
 
 interface HotelCardProps {
     name: string,
@@ -25,7 +25,6 @@ const HotelCard: FunctionComponent<HotelCardProps> = ({
             <Name> {name} </Name>
             <Rating> {rating} </Rating>
             <Location> {location} </Location>
-            <Divider />
             <Price> {price} </Price>
         </HotelMetadata>
     </Container>
