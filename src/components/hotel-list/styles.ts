@@ -5,6 +5,8 @@ export const Container = styled.div`
     width: 100%;
 
     overflow-y: scroll;
+
+    padding-left: 80px;
 `;
 
 export const ResultMetadata = styled.div``;
