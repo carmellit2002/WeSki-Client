@@ -5,6 +5,8 @@ import GuestsSelect from "./guests-select/guests-select";
 import SearchButton from "./search-button/search-button";
 import DatePicker from 'react-datepicker';
 import dayjs from 'dayjs';
+import { getHotels } from "../../AxiosInstances/serverRequestor";
+
 
 const SearchForm: React.FC = () => {
     const [skiSiteId, setSkiSiteId] = useState<number>(1);
@@ -12,6 +14,13 @@ const SearchForm: React.FC = () => {
     const [startDate, setStartDate] = useState<Date | null>(dayjs().toDate());
     const [endDate, setEndDate] = useState<Date | null>(dayjs().add(7, 'days').toDate());
 
+    const onSearchClick = async () => {
+        if (startDate && endDate) {
+            const hotels = await getHotels(skiSiteId, groupSize, startDate, endDate);
+            // Update Context / State;
+        }
+    }
+    
     return (
         <div className="search-form">
             <ResortsSelect value={skiSiteId} onChange={skiSiteId => setSkiSiteId(skiSiteId)} />
@@ -20,7 +29,7 @@ const SearchForm: React.FC = () => {
             <DatePicker className="search-form-date-picker" selected={startDate} onChange={(date) => setStartDate(date)} enableTabLoop={false} />
             <DatePicker className="search-form-date-picker" selected={endDate} onChange={(date) => setEndDate(date)} enableTabLoop={false} />
 
-            <SearchButton />
+            <SearchButton onClick={onSearchClick}/>
         </div>
     );
 }
